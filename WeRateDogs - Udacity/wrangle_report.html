@@ -14664,22 +14664,23 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><code>tweets_archive</code> Dataset</p>
 <ol>
-<li>Clean retweets (reply to a user or tweet) uring <code>in_reply_to_status_id</code> and/or <code>in_reply_to_user_id</code></li>
+<li>Clean retweets (reply to a user or tweet) using <code>in_reply_to_status_id</code> and/or <code>in_reply_to_user_id</code></li>
 <li><code>timestamp</code> to `datetime</li>
-<li>Unnecessary columns like <code>retweeted_status_id</code>, <code>retweeted_status_user_id</code>, <code>retweeted_status_timestamp</code></li>
+<li><code>text</code> column supposed to contain only tweet text (<code>tweet_link</code> should be removed)</li>
 <li>Same scale and range for <code>rating_denominator</code> and <code>rating_numerator</code> columns respectively</li>
 <li>Extract the source from <code>source</code> column </li>
 <li>Incorrect names like 'a', 'an', 'very', 'the' in <code>name</code> column </li>
+<li>Incorrect values for dog stage values; <code>None</code> instead of <code>NaN</code> or empty string</li>
+<li>Missing values for <code>expanded_urls</code></li>
 </ol>
 <p><code>image_predictions</code> Dataset</p>
 <ol>
-<li>Missing rows; it supposed to be aligned with <code>tweets_archive</code> dataset which has 2356 rows</li>
-<li>Unnecessary column <code>img_num</code></li>
-<li>None dog predictions, i.e., both <code>p1_dog</code>, <code>p2_dog</code>, and <code>p3_dog</code> values are <code>False</code></li>
+<li>Only one prediction for dog image instead of three</li>
+<li>Unstandardized naming for dog breed</li>
 </ol>
-<p><code>tweets_info</code> Dataset</p>
+<p><code>All</code></p>
 <ol>
-<li>Missing rows; it supposed to be 2356 rows</li>
+<li>Unnecessary columns like <code>retweeted_status_id</code>, <code>retweeted_status_user_id</code>, <code>retweeted_status_timestamp</code>, <code>img_num</code></li>
 </ol>
 
 </div>
@@ -14707,11 +14708,6 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <p><code>tweets_archive</code> Dataset</p>
 <ol>
 <li><code>dog_stage</code> supposed to be in single column</li>
-<li><code>text</code> column supposed to contain only tweet text (<code>tweet_link</code> should be removed)</li>
-</ol>
-<p><code>image_predictions</code> Dataset</p>
-<ol>
-<li>Only one prediction for dog image instead of three</li>
 </ol>
 <p><code>All</code></p>
 <ol>
